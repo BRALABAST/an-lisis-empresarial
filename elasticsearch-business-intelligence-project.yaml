@@ -1,0 +1,217 @@
+# Proyecto de Inteligencia Operativa y Análisis Empresarial
+# Configuración de índices y análisis para 12 empresas de diversos sectores
+
+version: '3.8'
+
+elasticsearch:
+  cluster_name: operational-intelligence-cluster
+  nodes: 3
+  version: '8.12.0'
+
+indices:
+  # 1. Sector Tecnológico: Empresa de Software de Gestión
+  - index_name: tech_software_insights
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - ventas_mensuales: { type: float }
+          - satisfaccion_cliente: { type: float }
+          - eficiencia_desarrollo: { type: float }
+        analisis_operativo:
+          - rendimiento_equipos: { type: nested }
+          - productividad: { type: float }
+
+  # 2. Sector Financiero: Banco de Inversiones
+  - index_name: financial_performance
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - retorno_inversion: { type: float }
+          - riesgo_cartera: { type: float }
+          - liquidez: { type: float }
+        analisis_riesgo:
+          - diversificacion_inversiones: { type: nested }
+          - analisis_credito: { type: object }
+
+  # 3. Sector Retail: Cadena de Supermercados
+  - index_name: retail_operations
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - ventas_por_tienda: { type: float }
+          - rotacion_inventario: { type: float }
+          - margen_beneficio: { type: float }
+        analisis_logistico:
+          - optimizacion_stock: { type: nested }
+          - eficiencia_cadena_suministro: { type: float }
+
+  # 4. Sector Manufactura: Fábrica de Autopartes
+  - index_name: manufacturing_performance
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - produccion_diaria: { type: float }
+          - calidad_producto: { type: float }
+          - eficiencia_maquinaria: { type: float }
+        analisis_produccion:
+          - tiempos_parada: { type: nested }
+          - mantenimiento_preventivo: { type: object }
+
+  # 5. Sector Energético: Empresa de Energías Renovables
+  - index_name: energy_operations
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - generacion_energia: { type: float }
+          - eficiencia_plantas: { type: float }
+          - reduccion_emisiones: { type: float }
+        analisis_sostenibilidad:
+          - impacto_ambiental: { type: nested }
+          - inversiones_verdes: { type: object }
+
+  # 6. Sector Salud: Red de Hospitales
+  - index_name: healthcare_performance
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - ocupacion_camas: { type: float }
+          - tiempo_espera: { type: float }
+          - satisfaccion_paciente: { type: float }
+        analisis_medico:
+          - eficiencia_tratamientos: { type: nested }
+          - gestion_recursos: { type: object }
+
+  # 7. Sector Telecomunicaciones: Operadora Móvil
+  - index_name: telecom_insights
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - conexiones_activas: { type: float }
+          - velocidad_red: { type: float }
+          - retencion_clientes: { type: float }
+        analisis_servicio:
+          - calidad_cobertura: { type: nested }
+          - rendimiento_infraestructura: { type: object }
+
+  # 8. Sector Agricultura: Empresa Agroindustrial
+  - index_name: agribusiness_performance
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - produccion_agricola: { type: float }
+          - rendimiento_cultivos: { type: float }
+          - eficiencia_riego: { type: float }
+        analisis_agricola:
+          - prediccion_cosechas: { type: nested }
+          - gestion_recursos_hidricos: { type: object }
+
+  # 9. Sector Transporte: Compañía Logística
+  - index_name: logistics_operations
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - entregas_puntuales: { type: float }
+          - costos_operativos: { type: float }
+          - utilizacion_flota: { type: float }
+        analisis_logistico:
+          - rutas_optimizadas: { type: nested }
+          - consumo_combustible: { type: object }
+
+  # 10. Sector Hotelería: Cadena de Hoteles
+  - index_name: hospitality_insights
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - ocupacion_hoteles: { type: float }
+          - satisfaccion_huesped: { type: float }
+          - ingresos_por_habitacion: { type: float }
+        analisis_operativo:
+          - gestion_reservas: { type: nested }
+          - eficiencia_servicios: { type: object }
+
+  # 11. Sector Educación: Plataforma E-learning
+  - index_name: education_performance
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - usuarios_activos: { type: float }
+          - cursos_completados: { type: float }
+          - engagement_estudiantes: { type: float }
+        analisis_educativo:
+          - rendimiento_academico: { type: nested }
+          - efectividad_contenidos: { type: object }
+
+  # 12. Sector Comercio Electrónico: Marketplace Online
+  - index_name: ecommerce_insights
+    type: business_intelligence
+    mappings:
+      properties:
+        empresa: { type: keyword }
+        sector: { type: keyword }
+        kpis:
+          - ventas_mensuales: { type: float }
+          - tasa_conversion: { type: float }
+          - retencion_clientes: { type: float }
+        analisis_ventas:
+          - comportamiento_compra: { type: nested }
+          - marketing_personalizado: { type: object }
+
+# Configuraciones de análisis y procesamiento
+analysis:
+  analyzer:
+    business_insights:
+      type: custom
+      tokenizer: standard
+      filter:
+        - lowercase
+        - stop
+        - stemmer_es
+  
+  plugins:
+    - analysis-icu
+    - analysis-spanish
+
+# Políticas de gestión de índices
+index_lifecycle_policy:
+  hot_phase_duration: 30d
+  warm_phase_duration: 90d
+  delete_phase_duration: 365d
+
+# Configuraciones de seguridad
+security:
+  encryption: true
+  authentication_method: x509
+  role_based_access_control: true
